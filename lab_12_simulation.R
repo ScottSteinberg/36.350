@@ -15,4 +15,20 @@ model_select <- function(covariates, responses, cutoff){
   }
 }
 
-  
+
+run_simulation <- function(n_trials, n, p, cutoff){
+  p.values <- vector(mode = "numeric")
+  for(i in 1:n_trials){
+    data <- generate_data(n,p)
+    p.values <- c(p.values, model_select(data$covariates, data$responses, cutoff))
+  }
+  hist(p.values)
+}
+
+for(n in c(100, 1000, 10000)){
+  for(p in c(10,20,50)){
+    run_simulation(n_trials = 100, n, p, cutoff = 0.5)
+  }
+}
+
+# P-values seem to be uniformly distributed from 0 to 0.5, but not after that
