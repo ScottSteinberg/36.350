@@ -45,4 +45,4 @@ for(n in c(100, 1000, 10000)){
 }
 
 # P-values seem to be uniformly distributed from 0 to 1, but not after that
-# Correction to 2c: I originally inputted p = 0.5 rather than 0.05. The p-values are not normally distributed
+# Correction to 2c: I originally inputted p = 0.5 rather than 0.05. The p-values are not uniformly distributed
